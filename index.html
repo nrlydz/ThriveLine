@@ -24,14 +24,9 @@
     <div id="age-screen" style="display:none;">
       <h2><i class="fas fa-id-card"></i> Verify Your Age</h2>
       <div class="selectors">
-        <select id="day"></select>
-        <select id="month">
-          <option>January</option><option>February</option><option>March</option>
-          <option>April</option><option>May</option><option>June</option>
-          <option>July</option><option>August</option><option>September</option>
-          <option>October</option><option>November</option><option>December</option>
-        </select>
-        <select id="year"></select>
+        <input type="number" id="day" min="1" max="31" placeholder="Day">
+        <input type="number" id="month" min="1" max="12" placeholder="Month">
+        <input type="number" id="year" min="1950" max="2026" placeholder="Year">
       </div>
       <button onclick="verifyAge()">Continue</button>
       <p id="age-message" style="color:red;"></p>
