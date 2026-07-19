@@ -1,21 +1,3 @@
-// Populate day dropdown (1–31)
-let daySelect = document.getElementById("day");
-for (let d = 1; d <= 31; d++) {
-  let option = document.createElement("option");
-  option.value = d;
-  option.text = d;
-  daySelect.appendChild(option);
-}
-
-// Populate year dropdown (1950–2026)
-let yearSelect = document.getElementById("year");
-for (let y = 1980; y <= 2026; y++) {
-  let option = document.createElement("option");
-  option.value = y;
-  option.text = y;
-  yearSelect.appendChild(option);
-}
-
 function showScreen(screenId) {
   // Hide all screens
   let screens = ["store-screen","age-screen","hub-screen","wallet-screen","phone-home","chrome-screen"];
