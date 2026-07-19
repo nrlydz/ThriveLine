@@ -18,9 +18,16 @@ body {
 }
 
 .app-icon {
-  border-radius: 20px;
+  width: 100px;      /* adjust size */
+  height: 100px;     /* keep proportions */
+  border-radius: 25px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
   margin-bottom: 15px;
+  object-fit: cover; /* ensures it scales neatly */
+  #store-screen {
+  text-align: center;
 }
+
 
 .screenshot {
   margin: 15px 0;
