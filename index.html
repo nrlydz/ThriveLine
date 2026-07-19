@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ThriveLine Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Age Verification Screen -->
+  <div id="age-screen">
+    <h2>Verify Your Age</h2>
+    <button onclick="goToHub()">I am 17–24</button>
+  </div>
+
+  <!-- Safety Hub -->
+  <div id="hub-screen" style="display:none;">
+    <h2>Safety Hub</h2>
+    <button onclick="showAlert()">Report Issue</button>
+    <button>Connect to Mentor</button>
+    <button>Wellness Feed</button>
+    <button onclick="goToWallet()">Credential Wallet</button>
+  </div>
+
+  <!-- Risk Alert -->
+  <div id="alert" style="display:none;">
+    <p>⚠️ Possible scam detected — here’s why.</p>
+    <button onclick="closeAlert()">Close</button>
+  </div>
+
+  <!-- Credential Wallet -->
+  <div id="wallet-screen" style="display:none;">
+    <h2>Credential Wallet</h2>
+    <p>Verified Badges:</p>
+    <ul>
+      <li>🎓 Verified Student</li>
+      <li>🤝 Trusted Mentor</li>
+    </ul>
+    <button onclick="goBackToHub()">Back to Hub</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
