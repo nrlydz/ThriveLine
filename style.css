@@ -18,8 +18,8 @@ body {
 }
 
 .app-icon {
-  width: 100px;      /* adjust size */
-  height: 100px;     /* keep proportions */
+  width: 60px;      /* adjust size */
+  height: 60px;     /* keep proportions */
   border-radius: 25px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
   margin-bottom: 15px;
