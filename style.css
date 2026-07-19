@@ -56,11 +56,27 @@ button:hover {
   margin: 20px 0;
 }
 
-select {
-  padding: 8px;
-  border-radius: 6px;
+input[type="number"] {
+  padding: 10px;
+  border-radius: 12px;
   border: 1px solid #ccc;
-  font-size: 14px;
+  font-size: 16px;
+  width: 30%;
+  text-align: center;
+  transition: all 0.3s ease;
+  -moz-appearance: textfield; /* removes Firefox arrows */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* removes Chrome arrows */
+  margin: 0;
+}
+
+input[type="number"]:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76,175,80,0.3);
+  outline: none;
 }
 
 .risk-counter {
