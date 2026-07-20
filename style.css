@@ -66,34 +66,50 @@ button:hover {
   background-color: #45a049;
 }
 
-.selectors {
+.scroll-picker {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 15px;
   margin: 20px 0;
 }
 
-input[type="number"] {
-  padding: 10px;
+.scroll-column {
+  width: 80px;
+  height: 120px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
   border-radius: 12px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  width: 30%;
+  background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1), 0 0 10px rgba(0,114,255,0.2);
   text-align: center;
-  transition: all 0.3s ease;
-  -moz-appearance: textfield; /* removes Firefox arrows */
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none; /* removes Chrome arrows */
-  margin: 0;
+.scroll-column div {
+  scroll-snap-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
 }
 
-input[type="number"]:focus {
-  border-color: #4CAF50;
-  box-shadow: 0 0 8px rgba(76,175,80,0.3);
-  outline: none;
+.scroll-column::-webkit-scrollbar {
+  display: none;
 }
+
+/* Highlight bar for selected item */
+.scroll-picker::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 40px;
+  background: rgba(0,114,255,0.1);
+  border: 2px solid rgba(0,114,255,0.4);
+  border-radius: 8px;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
 
 .risk-counter {
   background: #f4f4f9;
