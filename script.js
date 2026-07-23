@@ -3,14 +3,17 @@ window.addEventListener("DOMContentLoaded", () => {
     const splashScreen = document.getElementById("splashScreen");
     const onboarding1 = document.getElementById("onboarding1");
     const onboarding2 = document.getElementById("onboarding2");
+    const onboarding3 = document.getElementById("onboarding3");
 
     // Buttons
     const startBtn = document.getElementById("startBtn");
     const nextBtn1 = document.getElementById("nextBtn1");
-    const skipBtn1 = document.getElementById("skipBtn1");
-    const skipBtn2 = document.getElementById("skipBtn2");
+    const nextBtn2 = document.getElementById("nextBtn2");
+    const finishBtn = document.getElementById("finishBtn");
 
-    // Splash -> Onboarding 1
+    const skipBtns = document.querySelectorAll(".skip-link");
+
+    // Splash -> Screen 1
     if (startBtn) {
         startBtn.addEventListener("click", () => {
             splashScreen.style.display = "none";
@@ -18,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Onboarding 1 -> Onboarding 2
+    // Screen 1 -> Screen 2
     if (nextBtn1) {
         nextBtn1.addEventListener("click", () => {
             onboarding1.style.display = "none";
@@ -26,12 +29,25 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Skip Handlers (Skip straight to Home / Onboarding 3 later)
-    [skipBtn1, skipBtn2].forEach(btn => {
-        if (btn) {
-            btn.addEventListener("click", () => {
-                alert("Skipped onboarding!");
-            });
-        }
+    // Screen 2 -> Screen 3
+    if (nextBtn2) {
+        nextBtn2.addEventListener("click", () => {
+            onboarding2.style.display = "none";
+            onboarding3.style.display = "flex";
+        });
+    }
+
+    // Finish -> Complete Onboarding
+    if (finishBtn) {
+        finishBtn.addEventListener("click", () => {
+            alert("Onboarding complete! Heading to Home Screen...");
+        });
+    }
+
+    // Skip Buttons
+    skipBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            alert("Skipped to Home Screen!");
+        });
     });
 });
