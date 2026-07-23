@@ -296,6 +296,155 @@ button span{
     to{
         opacity:1;
         transform:translateY(0);
+
+
+       /* --- Helper Utility --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- Onboarding Container --- */
+.onboarding-screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.onboarding-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.skip-btn {
+    background: none;
+    border: none;
+    color: #246BFD;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: none;
+    width: auto;
+    padding: 4px 8px;
+}
+
+.skip-btn:hover {
+    transform: none;
+    box-shadow: none;
+    opacity: 0.8;
+}
+
+/* --- Illustration Container --- */
+.illustration-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glow-bg {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(32, 217, 232, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+}
+
+.shield-icon {
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+    filter: drop-shadow(0 12px 20px rgba(36, 107, 253, 0.25));
+}
+
+.floating-lock {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    background: #246BFD;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(36, 107, 253, 0.3);
+    z-index: 3;
+}
+
+/* --- Typography --- */
+.onboarding-content h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #102A43;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.onboarding-content p {
+    font-size: 15px;
+    color: #627D98;
+    line-height: 1.6;
+    max-width: 290px;
+    margin: 0 auto;
+}
+
+/* --- Footer Controls --- */
+.onboarding-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.dots-indicator {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #D9E2EC;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    width: 10px;
+    height: 10px;
+    background-color: #246BFD;
+}
+
+.next-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(90deg, #246BFD, #1FCDE8, #59E65A);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 25px rgba(36, 107, 253, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.next-btn:active {
+    transform: scale(0.98);
+}
     }
 
 }
