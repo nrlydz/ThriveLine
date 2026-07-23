@@ -215,3 +215,17 @@ h1 {
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(89, 230, 90, 0.3);
 }
+
+.id-graphic {
+    font-size: 65px;
+}
+
+.check-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 16px;
+    background: #20D9E8;
+    padding: 6px;
+    border-radius: 50%;
+}
