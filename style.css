@@ -40,10 +40,13 @@ body {
     backdrop-filter: blur(20px);
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 
     padding: 35px;
+    position: relative;
+    overflow: hidden;
 
 }
 
@@ -447,4 +450,8 @@ button span{
 }
     }
 
+}
+
+.hidden {
+   display: none !important;
 }
