@@ -1,23 +1,15 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Grab elements
+window.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("startBtn");
     const splashScreen = document.getElementById("splashScreen");
     const onboarding1 = document.getElementById("onboarding1");
 
-    // 2. Add click listener
     if (startBtn) {
         startBtn.addEventListener("click", () => {
-            console.log("Get Started Clicked!");
-            
             // Hide Splash
-            if (splashScreen) {
-                splashScreen.classList.add("hidden");
-            }
+            splashScreen.style.display = "none";
             
-            // Show Onboarding 1
-            if (onboarding1) {
-                onboarding1.classList.remove("hidden");
-            }
+            // Show Onboarding Screen 1
+            onboarding1.style.display = "flex";
         });
     }
 });
