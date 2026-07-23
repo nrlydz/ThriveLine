@@ -39,3 +39,15 @@ document
         onboarding1.classList.remove("hidden");
 
 });
+
+// Splash -> Onboarding 1
+const startBtn = document.getElementById("startBtn");
+const splashScreen = document.querySelector(".splash-screen");
+const onboarding1 = document.getElementById("onboarding1");
+
+if (startBtn) {
+    startBtn.addEventListener("click", () => {
+        splashScreen.classList.add("hidden");
+        onboarding1.classList.remove("hidden");
+    });
+}
