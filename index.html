@@ -5,80 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThriveLine</title>
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <div class="app-container">
 
-        <div class="splash-screen" id="splashScreen">
-        
+        <div class="screen" id="splashScreen">
             <div class="splash-content">
                 <img src="ThriveLine.png" alt="ThriveLine Logo" class="logo">
                 <h1>ThriveLine</h1>
                 <p class="tagline">Your digital safety companion</p>
                 <p class="description">Navigate the digital world with confidence.</p>
             </div>
-
-            <button id="startBtn">Get Started <span>→</span></button>
-
+            <button id="startBtn" class="primary-btn">Get Started <span>→</span></button>
         </div>
 
-        <div id="onboarding1" class="onboarding-screen hidden">
+        <div class="screen" id="onboarding1" style="display: none;">
+            <div class="onboarding-header">
+                <button class="skip-link" id="skipBtn1">Skip</button>
+            </div>
+
+            <div class="onboarding-body">
+                <div class="illustration-wrapper">
+                    <span class="lock-badge">🔒</span>
+                    <div class="shield-graphic">🛡️</div>
+                </div>
+                <h2>Stay Protected</h2>
+                <p>We detect scams, suspicious links, and risky interactions before they become problems.</p>
+            </div>
+
+            <div class="onboarding-footer">
+                <div class="dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="primary-btn" id="nextBtn1">Next <span>→</span></button>
+            </div>
         </div>
 
-    <div class="onboarding-header">
-        <button id="skipBtn1" class="skip-btn">Skip</button>
-    </div>
-
-    <div class="onboarding-content">
-        <div class="illustration-wrapper">
-            <div class="glow-bg"></div>
-            
-            <div class="floating-lock">🔒</div>
-
-            <svg class="shield-icon" viewBox="0 0 100 100" fill="none">
-                <defs>
-                    <linearGradient id="ob1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#246BFD" />
-                        <stop offset="50%" stop-color="#20D9E8" />
-                        <stop offset="100%" stop-color="#59E65A" />
-                    </linearGradient>
-                </defs>
-                <path d="M50 8 L82 22 V48 C82 68 50 88 50 88 C50 88 18 68 18 48 V22 L50 8 Z" fill="url(#ob1-grad)"/>
-                <path d="M28 58 C38 40, 60 28, 72 28" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
-                <path d="M50 33 C46 33 43 36 43 40 C43 46 50 52 50 52 C50 52 57 46 57 40 C57 36 54 33 50 33 Z" fill="white"/>
-            </svg>
-        </div>
-
-        <h2>Stay Protected</h2>
-        <p>
-            We detect scams, suspicious links, and risky interactions before they become problems.
-        </p>
-    </div>
-
-    <div class="onboarding-footer">
-        <div class="dots-indicator">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-
-        <button id="nextBtn1" class="next-btn">
-            Next <span>→</span>
-        </button>
-    </div>
-
-</div>
-      
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
