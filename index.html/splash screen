@@ -37,40 +37,6 @@
 
         </div>
 
-        <!-- ========================================= -->
-        <!-- ONBOARDING SCREEN 1 -->
-        <!-- ========================================= -->
-
-        <div class="onboarding-screen hidden" id="onboarding1">
-
-            <div class="onboarding-content">
-
-                <div class="onboard-icon">
-                    🛡️
-                </div>
-
-                <h2>Stay Protected</h2>
-
-                <p>
-                    ThriveLine detects scams, phishing,
-                    suspicious links and grooming attempts
-                    before they become a threat.
-                </p>
-
-                <div class="progress-dots">
-                    <span class="active-dot"></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <button id="nextBtn1">
-                    Continue →
-                </button>
-
-            </div>
-
-        </div>
-
     </div>
 
     <script src="script.js"></script>
