@@ -133,24 +133,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Log Out Functionality
-const logoutBtn = document.querySelector('.logout-btn');
-const bottomNav = document.getElementById('bottomNav');
-const allScreens = document.querySelectorAll('.screen');
+document.addEventListener("DOMContentLoaded", () => {
+    const logoutBtn = document.querySelector('.logout-btn');
+    const bottomNav = document.getElementById('bottomNav');
+    const allScreens = document.querySelectorAll('.screen');
+    const splashScreen = document.getElementById('splashScreen');
+    const sideDrawer = document.getElementById('sideDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
 
-if (logoutBtn) {
-    logoutBtn.addEventListener('click', () => {
-        // Hide all screens
-        allScreens.forEach(screen => screen.classList.remove('active'));
-        
-        // Show splash screen
-        const splashScreen = document.getElementById('splashScreen');
-        if (splashScreen) {
-            splashScreen.classList.add('active');
-        }
-        
-        // Hide the bottom navigation bar on splash screen
-        if (bottomNav) {
-            bottomNav.classList.add('hidden');
-        }
-    });
-}
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            // 1. Close side drawer if open
+            if (sideDrawer) sideDrawer.classList.remove('open');
+            if (drawerOverlay) drawerOverlay.classList.remove('active');
+
+            // 2. Hide all screens
+            allScreens.forEach(screen => screen.classList.remove('active'));
+
+            // 3. Show Splash Screen
+            if (splashScreen) {
+                splashScreen.classList.add('active');
+            }
+
+            // 4. Hide Bottom Nav
+            if (bottomNav) {
+                bottomNav.classList.add('hidden');
+            }
+
+            // 5. Reset bottom nav tab highlighting back to 'Safety' (Home)
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            const homeNavItem = document.querySelector('.nav-item[data-target="homeScreen"]');
+            if (homeNavItem) homeNavItem.classList.add('active');
+        });
+    }
+});
