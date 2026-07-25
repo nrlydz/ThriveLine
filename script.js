@@ -6,8 +6,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const onboarding3 = document.getElementById("onboarding3");
     const ageVerificationScreen = document.getElementById("ageVerificationScreen");
     const outOfRangeScreen = document.getElementById("outOfRangeScreen");
+    
+    // Main App & Bottom Nav Controls
+    const bottomNav = document.getElementById("bottomNav");
+    const navItems = document.querySelectorAll(".nav-item");
 
-    // 2. Get controls
+    // Buttons
     const startBtn = document.getElementById("startBtn");
     const nextBtn1 = document.getElementById("nextBtn1");
     const nextBtn2 = document.getElementById("nextBtn2");
@@ -17,15 +21,38 @@ window.addEventListener("DOMContentLoaded", () => {
     const birthYearSelect = document.getElementById("birthYear");
     const confirmAgeBtn = document.getElementById("confirmAgeBtn");
     const backToAgeBtn = document.getElementById("backToAgeBtn");
-    const continueAnywayBtn = document.getElementById("continueAnywayBtn");
 
-    // Helper: Switch active screen
-    function goToScreen(targetScreen) {
+    // Helper: Switch Screen and Control Bottom Nav
+    function goToScreen(targetScreen, showNav = false) {
         screens.forEach(s => s.classList.remove("active"));
-        if (targetScreen) targetScreen.classList.add("active");
+        if (targetScreen) {
+            targetScreen.classList.add("active");
+        }
+
+        if (bottomNav) {
+            if (showNav) {
+                bottomNav.classList.remove("hidden");
+            } else {
+                bottomNav.classList.add("hidden");
+            }
+        }
     }
 
-    // Populate Birth Years dynamically (100 years down to current year)
+    // Helper: Enter Main App View
+    function enterApp(targetId = "homeScreen") {
+        const targetScreen = document.getElementById(targetId);
+        goToScreen(targetScreen, true);
+        
+        navItems.forEach(item => {
+            if (item.dataset.target === targetId) {
+                item.classList.add("active");
+            } else {
+                item.classList.remove("active");
+            }
+        });
+    }
+
+    // Dynamic Birth Years Dropdown (Current year down 100 years)
     if (birthYearSelect) {
         const currentYear = new Date().getFullYear();
         for (let year = currentYear; year >= currentYear - 100; year--) {
@@ -36,15 +63,13 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Navigation Flows
+    // Onboarding Navigation
     if (startBtn) startBtn.addEventListener("click", () => goToScreen(onboarding1));
     if (nextBtn1) nextBtn1.addEventListener("click", () => goToScreen(onboarding2));
     if (nextBtn2) nextBtn2.addEventListener("click", () => goToScreen(onboarding3));
-
-    // Finish Onboarding 3 -> Go to Age Verification
     if (finishBtn) finishBtn.addEventListener("click", () => goToScreen(ageVerificationScreen));
 
-    // Skip Buttons -> Go straight to Age Verification
+    // Skip Buttons in Onboarding -> Go straight to Age Verification
     skipBtns.forEach(skipBtn => {
         skipBtn.addEventListener("click", (e) => {
             e.preventDefault();
@@ -52,7 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // AGE CHECK LOGIC
+    // STRICT AGE CHECK LOGIC
     if (confirmAgeBtn) {
         confirmAgeBtn.addEventListener("click", () => {
             const selectedYear = parseInt(birthYearSelect ? birthYearSelect.value : "0", 10);
@@ -62,25 +87,26 @@ window.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Core demographic: 2002 to 2009 (Ages 17-24 in 2026)
+            // Strictly allowed: Born 2002 to 2009 (Ages 17-24 in 2026)
             if (selectedYear >= 2002 && selectedYear <= 2009) {
-                alert(`Welcome! Birth year ${selectedYear} is in our core demographic. Setup complete!`);
+                enterApp("homeScreen");
             } else {
-                // Out of target range (e.g. 1999) -> Show notice screen
+                // Out of range -> Restricted Access
                 goToScreen(outOfRangeScreen);
             }
         });
     }
 
-    // Back button on Out of Range screen
+    // Back button on Restricted Screen -> Returns to Age Verification
     if (backToAgeBtn) {
         backToAgeBtn.addEventListener("click", () => goToScreen(ageVerificationScreen));
     }
 
-    // Continue Anyway button on Out of Range screen
-    if (continueAnywayBtn) {
-        continueAnywayBtn.addEventListener("click", () => {
-            alert("Proceeding to main dashboard with general settings...");
+    // Bottom Navigation Bar Switching
+    navItems.forEach(item => {
+        item.addEventListener("click", () => {
+            const targetId = item.dataset.target;
+            enterApp(targetId);
         });
-    }
+    });
 });
