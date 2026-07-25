@@ -32,9 +32,9 @@ body {
     }
 }
 
-/* Screen Visibility Logic */
+/* Visibility Control */
 .screen {
-    display: none !important; /* Hide all screens by default */
+    display: none !important;
     width: 100%;
     height: 100%;
     padding: 48px 24px 36px;
@@ -45,7 +45,7 @@ body {
 }
 
 .screen.active {
-    display: flex !important; /* Force show when .active class is present */
+    display: flex !important;
 }
 
 /* Splash Layout */
@@ -85,7 +85,7 @@ h1 {
     max-width: 260px;
 }
 
-/* Buttons & Links */
+/* Buttons */
 .primary-btn {
     width: 100%;
     border: none;
@@ -118,7 +118,7 @@ h1 {
     cursor: pointer;
 }
 
-/* Graphics & Badges */
+/* Graphics */
 .illustration-wrapper {
     position: relative;
     width: 160px;
