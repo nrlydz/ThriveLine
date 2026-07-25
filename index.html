@@ -95,8 +95,7 @@
 
         <div class="screen" id="ageVerificationScreen">
             <div class="onboarding-header">
-                <button class="skip-link" id="skipVerification">Skip for now</button>
-            </div>
+                </div>
 
             <div class="onboarding-body">
                 <div class="illustration-wrapper">
@@ -107,7 +106,7 @@
                 <p>ThriveLine customizes safety tools based on your age group to keep your experience secure.</p>
 
                 <div class="form-group">
-                    <label for="birthYear">Select Your Birth Year</label>
+                    <label for="birthYear">SELECT YOUR BIRTH YEAR</label>
                     <select id="birthYear" class="custom-select">
                         <option value="" disabled selected>Choose Year</option>
                     </select>
@@ -121,25 +120,302 @@
 
         <div class="screen" id="outOfRangeScreen">
             <div class="onboarding-header">
-                <button class="skip-link" id="backToAgeBtn">← Back</button>
-            </div>
+                </div>
 
             <div class="onboarding-body">
                 <div class="illustration-wrapper">
                     <span class="heart-badge">👋</span>
-                    <div class="network-graphic">🛡️</div>
+                    <div class="shield-graphic">🛡️</div>
                 </div>
                 <h2>Notice on Age Target</h2>
-                <p>ThriveLine is currently designed specifically for youth aged <strong>17–24</strong> (born 2002–2009).</p>
+                <p>
+                    Sorry, but <strong>ThriveLine</strong> is currently designed specifically for youth aged <strong>17–24</strong> (born 2002–2009).
+                </p>
                 <p class="notice-subtext">
-                    You can still explore limited features, but some protection tools are optimized for our core age group.
+                    We will upgrade our app to include more age groups in the future!
                 </p>
             </div>
 
             <div class="onboarding-footer">
-                <button class="primary-btn" id="continueAnywayBtn">Continue to App <span>→</span></button>
+                <button class="primary-btn" id="backToAgeBtn">← Back</button>
             </div>
         </div>
+
+        <div class="screen" id="homeScreen">
+            <header class="app-header">
+                <button class="icon-btn" id="menuBtn">☰</button>
+                <button class="icon-btn" id="notifBtn">🔔</button>
+            </header>
+
+            <main class="content">
+                <section class="user-greeting">
+                    <p class="greeting-sub">Good Afternoon,</p>
+                    <h1 class="user-name">Alex 👋</h1>
+                    <div class="protection-badge">
+                        <span class="badge-icon">🛡️</span> You're Protected
+                    </div>
+                </section>
+
+                <section class="score-card">
+                    <div class="gauge-wrapper">
+                        <div class="score-circle">
+                            <span class="score-number">96<small>%</small></span>
+                            <span class="score-label">Protection Score</span>
+                        </div>
+                    </div>
+                    <p class="status-text">Excellent Protection</p>
+                </section>
+
+                <section class="threats-card">
+                    <div class="threats-info">
+                        <h3><strong>18</strong> threats prevented this week</h3>
+                        <span class="trend-indicator text-green">▲ 12% from last week</span>
+                    </div>
+                    <div class="sparkline-chart">📈</div>
+                </section>
+
+                <section class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-grid">
+                        <button class="action-btn">
+                            <span class="action-icon">🔍</span>
+                            <span>Scan Link</span>
+                        </button>
+                        <button class="action-btn">
+                            <span class="action-icon">🔒</span>
+                            <span>Privacy</span>
+                        </button>
+                        <button class="action-btn">
+                            <span class="action-icon">💳</span>
+                            <span>Wallet</span>
+                        </button>
+                        <button class="action-btn">
+                            <span class="action-icon">👥</span>
+                            <span>Network</span>
+                        </button>
+                    </div>
+                </section>
+
+                <section class="recent-activity">
+                    <div class="section-header">
+                        <h3>Recent Activity</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="activity-card item-success">
+                        <div class="activity-icon">✅</div>
+                        <div class="activity-details">
+                            <h4>Scam link blocked</h4>
+                            <p>Today, 2:14 PM</p>
+                        </div>
+                        <span class="arrow-right">›</span>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div class="screen" id="activityScreen">
+            <header class="app-header title-only">
+                <h1>Activity</h1>
+                <button class="icon-btn">⚙️</button>
+            </header>
+
+            <main class="content">
+                <div class="filter-bar">
+                    <button class="chip active">All</button>
+                    <button class="chip">Protection</button>
+                    <button class="chip">Wallet</button>
+                    <button class="chip">Network</button>
+                </div>
+
+                <div class="timeline">
+                    <h3 class="date-group-title">Today</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="item-icon icon-green">🛡️</div>
+                        <div class="item-content">
+                            <h4>Scam website blocked</h4>
+                            <p>harmful-site.com</p>
+                        </div>
+                        <span class="item-time">2:14 PM</span>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="item-icon icon-orange">⚠️</div>
+                        <div class="item-content">
+                            <h4>Suspicious DM detected</h4>
+                            <p>Instagram</p>
+                        </div>
+                        <span class="item-time">12:03 PM</span>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="item-icon icon-blue">🔒</div>
+                        <div class="item-content">
+                            <h4>Password reuse reminder</h4>
+                            <p>2 accounts</p>
+                        </div>
+                        <span class="item-time">9:10 AM</span>
+                    </div>
+
+                    <h3 class="date-group-title">Yesterday</h3>
+
+                    <div class="timeline-item">
+                        <div class="item-icon icon-light-green">👤</div>
+                        <div class="item-content">
+                            <h4>New trusted contact added</h4>
+                            <p>Older Sister</p>
+                        </div>
+                        <span class="item-time">8:45 PM</span>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="item-icon icon-blue">📄</div>
+                        <div class="item-content">
+                            <h4>Weekly report generated</h4>
+                            <p>Summary of your activity</p>
+                        </div>
+                        <span class="item-time">7:30 PM</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="screen" id="networkScreen">
+            <header class="app-header title-only">
+                <div>
+                    <h1>Care Network</h1>
+                    <p class="subtitle">These are your trusted contacts. You're in control.</p>
+                </div>
+                <button class="icon-btn add-btn">+</button>
+            </header>
+
+            <main class="content">
+                <div class="contact-list">
+                    <div class="contact-card">
+                        <img src="https://i.pravatar.cc/100?img=11" alt="Campus Counsellor" class="avatar">
+                        <div class="contact-info">
+                            <h4>Campus Counsellor</h4>
+                            <p>Professional</p>
+                        </div>
+                        <span class="arrow-right">›</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <img src="https://i.pravatar.cc/100?img=5" alt="Academic Mentor" class="avatar">
+                        <div class="contact-info">
+                            <h4>Academic Mentor</h4>
+                            <p>Mentor</p>
+                        </div>
+                        <span class="arrow-right">›</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <img src="https://i.pravatar.cc/100?img=9" alt="Older Sister" class="avatar">
+                        <div class="contact-info">
+                            <h4>Older Sister</h4>
+                            <p>Family</p>
+                        </div>
+                        <span class="arrow-right">›</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Best Friend" class="avatar">
+                        <div class="contact-info">
+                            <h4>Best Friend</h4>
+                            <p>Friend</p>
+                        </div>
+                        <span class="arrow-right">›</span>
+                    </div>
+                </div>
+
+                <div class="add-contact-banner">
+                    <div class="banner-icon">👤</div>
+                    <div class="banner-text">
+                        <h4>Add Trusted Contact</h4>
+                        <p>Choose someone you trust to support you.</p>
+                    </div>
+                    <button class="text-link-btn">+ Add</button>
+                </div>
+            </main>
+        </div>
+
+        <div class="screen" id="profileScreen">
+            <main class="content profile-content">
+                <div class="profile-header-card">
+                    <div class="settings-gear">⚙️</div>
+                    <div class="avatar-wrapper">
+                        <img src="https://i.pravatar.cc/150?img=68" alt="Alex Tan" class="profile-avatar">
+                    </div>
+                    <h2>Alex Tan</h2>
+                    <span class="verified-badge">✔ Verified Student</span>
+                    <p class="email-text">alex.tan@student.edu.sg</p>
+                </div>
+
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <span class="menu-icon">💳</span>
+                        <div class="menu-label">
+                            <span>Credential Wallet</span>
+                            <small>All credentials are verified</small>
+                        </div>
+                        <span class="arrow-right">›</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <span class="menu-icon">🔒</span>
+                        <div class="menu-label"><span>Privacy Settings</span></div>
+                        <span class="arrow-right">›</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <span class="menu-icon">🔔</span>
+                        <div class="menu-label"><span>Notification Settings</span></div>
+                        <span class="arrow-right">›</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <span class="menu-icon">🎨</span>
+                        <div class="menu-label"><span>Appearance</span></div>
+                        <span class="menu-value">Light ›</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <span class="menu-icon">❓</span>
+                        <div class="menu-label"><span>Help Centre</span></div>
+                        <span class="arrow-right">›</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <span class="menu-icon">ℹ️</span>
+                        <div class="menu-label"><span>About ThriveLine</span></div>
+                        <span class="menu-value">v1.0.0 ›</span>
+                    </div>
+
+                    <button class="logout-btn">
+                        <span>🚪</span> Log Out
+                    </button>
+                </div>
+            </main>
+        </div>
+
+        <nav class="bottom-nav hidden" id="bottomNav">
+            <button class="nav-item active" data-target="homeScreen">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Safety</span>
+            </button>
+            <button class="nav-item" data-target="activityScreen">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Activity</span>
+            </button>
+            <button class="nav-item" data-target="networkScreen">
+                <span class="nav-icon">👥</span>
+                <span class="nav-label">Network</span>
+            </button>
+            <button class="nav-item" data-target="profileScreen">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">You</span>
+            </button>
+        </nav>
 
     </div>
 
