@@ -131,3 +131,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeDrawerBtn) closeDrawerBtn.addEventListener("click", closeDrawer);
     if (drawerOverlay) drawerOverlay.addEventListener("click", closeDrawer);
 });
+
+// Log Out Functionality
+const logoutBtn = document.querySelector('.logout-btn');
+const bottomNav = document.getElementById('bottomNav');
+const allScreens = document.querySelectorAll('.screen');
+
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        // Hide all screens
+        allScreens.forEach(screen => screen.classList.remove('active'));
+        
+        // Show splash screen
+        const splashScreen = document.getElementById('splashScreen');
+        if (splashScreen) {
+            splashScreen.classList.add('active');
+        }
+        
+        // Hide the bottom navigation bar on splash screen
+        if (bottomNav) {
+            bottomNav.classList.add('hidden');
+        }
+    });
+}
