@@ -264,7 +264,7 @@ h1 {
 }
 
 /* =========================================================
-   Main App Screens Layout (Fixed Display Bug)
+   Main App Screens Layout (Fixed Stacking & Layout)
 ========================================================= */
 #homeScreen,
 #activityScreen,
@@ -281,6 +281,13 @@ h1 {
     width: 100%;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+#homeScreen:not(.active),
+#activityScreen:not(.active),
+#networkScreen:not(.active),
+#profileScreen:not(.active) {
+    display: none !important;
 }
 
 #homeScreen::-webkit-scrollbar,
