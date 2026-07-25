@@ -93,6 +93,34 @@
             </div>
         </div>
 
-    </div> <script src="script.js"></script>
+        <div class="screen" id="ageVerificationScreen">
+            <div class="onboarding-header">
+                <button class="skip-link" id="skipVerification">Skip for now</button>
+            </div>
+
+            <div class="onboarding-body">
+                <div class="illustration-wrapper">
+                    <span class="check-badge">🪪</span>
+                    <div class="id-graphic">🎂</div>
+                </div>
+                <h2>Verify Your Age</h2>
+                <p>ThriveLine customizes safety tools based on your age group to keep your experience secure.</p>
+
+                <div class="form-group">
+                    <label for="birthYear">Select Your Birth Year</label>
+                    <select id="birthYear" class="custom-select">
+                        <option value="" disabled selected>Choose Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="onboarding-footer">
+                <button class="primary-btn" id="confirmAgeBtn">Continue <span>→</span></button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
