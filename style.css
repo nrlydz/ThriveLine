@@ -843,7 +843,11 @@ h1 {
     50% { transform: translateY(-8px); }
 }
 
-/* Drawer Overlay */
+/* ==========================================
+   SIDE DRAWER & PROTECTION CONTROLS
+   ========================================== */
+
+/* Dark overlay behind the drawer */
 .drawer-overlay {
     position: fixed;
     top: 0;
@@ -863,38 +867,41 @@ h1 {
     visibility: visible;
 }
 
-/* Side Drawer Component */
+/* Side Drawer Panel */
 .side-drawer {
     position: fixed;
     top: 0;
-    left: -280px;
-    width: 280px;
+    left: -320px;
+    width: 300px;
     height: 100%;
     background: #ffffff;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
     z-index: 100;
     transition: left 0.3s ease;
     display: flex;
     flex-direction: column;
     padding: 24px 20px;
+    box-sizing: border-box;
 }
 
 .side-drawer.open {
     left: 0;
 }
 
+/* Drawer Header */
 .drawer-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
+    padding-bottom: 16px;
     border-bottom: 1px solid #f0f0f0;
+    flex-shrink: 0;
 }
 
 .drawer-header h3 {
     margin: 0;
     font-size: 1.1rem;
+    font-weight: 700;
     color: #111827;
 }
 
@@ -904,9 +911,27 @@ h1 {
     font-size: 1.2rem;
     cursor: pointer;
     color: #6b7280;
+    padding: 4px;
 }
 
-/* Toggle Control Items */
+/* Scrollable Container for Toggles */
+.drawer-content {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 4px;
+    margin-top: 10px;
+}
+
+.drawer-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.drawer-content::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 4px;
+}
+
+/* Individual Toggle Rows */
 .toggle-item {
     display: flex;
     justify-content: space-between;
@@ -922,7 +947,7 @@ h1 {
 }
 
 .toggle-title {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #1f2937;
 }
@@ -930,10 +955,11 @@ h1 {
 .toggle-desc {
     font-size: 0.75rem;
     color: #6b7280;
-    margin-top: 2px;
+    margin-top: 3px;
+    line-height: 1.2;
 }
 
-/* Switch Styling */
+/* Toggle Switch Design */
 .switch {
     position: relative;
     display: inline-block;
