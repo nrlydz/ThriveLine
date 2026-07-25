@@ -110,3 +110,24 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menuBtn");
+    const closeDrawerBtn = document.getElementById("closeDrawerBtn");
+    const sideDrawer = document.getElementById("sideDrawer");
+    const drawerOverlay = document.getElementById("drawerOverlay");
+
+    function openDrawer() {
+        sideDrawer.classList.add("open");
+        drawerOverlay.classList.add("active");
+    }
+
+    function closeDrawer() {
+        sideDrawer.classList.remove("open");
+        drawerOverlay.classList.remove("active");
+    }
+
+    if (menuBtn) menuBtn.addEventListener("click", openDrawer);
+    if (closeDrawerBtn) closeDrawerBtn.addEventListener("click", closeDrawer);
+    if (drawerOverlay) drawerOverlay.addEventListener("click", closeDrawer);
+});
