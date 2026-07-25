@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThriveLine</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="app-container">
 
-        <div class="screen" id="splashScreen">
+        <div class="screen active" id="splashScreen">
             <div class="splash-content">
                 <img src="ThriveLine.png" alt="ThriveLine Logo" class="logo">
                 <h1>ThriveLine</h1>
@@ -23,9 +21,9 @@
             <button id="startBtn" class="primary-btn">Get Started <span>→</span></button>
         </div>
 
-        <div class="screen" id="onboarding1" style="display: none;">
+        <div class="screen" id="onboarding1">
             <div class="onboarding-header">
-                <button class="skip-link" id="skipBtn1">Skip</button>
+                <button class="skip-link">Skip</button>
             </div>
 
             <div class="onboarding-body">
@@ -45,10 +43,11 @@
                 </div>
                 <button class="primary-btn" id="nextBtn1">Next <span>→</span></button>
             </div>
+        </div>
 
-            <div class="screen" id="onboarding2" style="display: none;">
+        <div class="screen" id="onboarding2">
             <div class="onboarding-header">
-                <button class="skip-link" id="skipBtn2">Skip</button>
+                <button class="skip-link">Skip</button>
             </div>
 
             <div class="onboarding-body">
@@ -68,10 +67,11 @@
                 </div>
                 <button class="primary-btn" id="nextBtn2">Next <span>→</span></button>
             </div>
+        </div>
 
-                <div class="screen" id="onboarding3" style="display: none;">
+        <div class="screen" id="onboarding3">
             <div class="onboarding-header">
-                <button class="skip-link" id="skipBtn3">Skip</button>
+                <button class="skip-link">Skip</button>
             </div>
 
             <div class="onboarding-body">
@@ -87,13 +87,11 @@
                 <div class="dots">
                     <span class="dot"></span>
                     <span class="dot"></span>
-                    <span class="dot active"></span> </div>
-                <button class="primary-btn" id="finishBtn">Get Started <span>→</span></button>
+                    <span class="dot active"></span>
+                </div>
+                <button class="primary-btn" id="finishBtn">Let's Go! <span>→</span></button>
             </div>
-                    
         </div>
-    </div>
-</div>
 
     </div>
 
