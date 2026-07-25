@@ -264,7 +264,7 @@ h1 {
 }
 
 /* =========================================================
-   Main App Screens Layout (Fixed Alignment)
+   Main App Screens Layout
 ========================================================= */
 #homeScreen,
 #activityScreen,
@@ -279,8 +279,7 @@ h1 {
     left: 0;
     bottom: 65px;
     width: 100%;
-    
-    /* FIX: Force content to start immediately below header */
+    /* Fix: stack header and content from top to bottom */
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
@@ -298,9 +297,8 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    
-    /* FIX: Remove forced spacing and let cards stack neatly */
-    justify-content: flex-start;
+    /* Allow content to fill remaining height properly */
+    flex: 1;
 }
 
 .app-header {
