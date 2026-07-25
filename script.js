@@ -52,10 +52,10 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Dynamic Birth Years Dropdown (Current year down 100 years)
+    // Dynamic Birth Years Dropdown (2026 down to 1980)
     if (birthYearSelect) {
         const currentYear = new Date().getFullYear();
-        for (let year = currentYear; year >= currentYear - 100; year--) {
+        for (let year = currentYear; year >= 1980; year--) {
             const option = document.createElement("option");
             option.value = year;
             option.textContent = year;
