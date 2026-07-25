@@ -1,53 +1,33 @@
 window.addEventListener("DOMContentLoaded", () => {
-    // Screens
+    // 1. Get screens
+    const screens = document.querySelectorAll(".screen");
     const splashScreen = document.getElementById("splashScreen");
     const onboarding1 = document.getElementById("onboarding1");
     const onboarding2 = document.getElementById("onboarding2");
     const onboarding3 = document.getElementById("onboarding3");
 
-    // Buttons
+    // 2. Get buttons
     const startBtn = document.getElementById("startBtn");
     const nextBtn1 = document.getElementById("nextBtn1");
     const nextBtn2 = document.getElementById("nextBtn2");
     const finishBtn = document.getElementById("finishBtn");
 
-    const skipBtns = document.querySelectorAll(".skip-link");
-
-    // Splash -> Screen 1
-    if (startBtn) {
-        startBtn.addEventListener("click", () => {
-            splashScreen.style.display = "none";
-            onboarding1.style.display = "flex";
-        });
+    // Helper: Hide all screens, show target screen
+    function goToScreen(targetScreen) {
+        screens.forEach(screen => screen.classList.remove("active"));
+        if (targetScreen) {
+            targetScreen.classList.add("active");
+        }
     }
 
-    // Screen 1 -> Screen 2
-    if (nextBtn1) {
-        nextBtn1.addEventListener("click", () => {
-            onboarding1.style.display = "none";
-            onboarding2.style.display = "flex";
-        });
-    }
+    // Event listeners
+    if (startBtn) startBtn.addEventListener("click", () => goToScreen(onboarding1));
+    if (nextBtn1) nextBtn1.addEventListener("click", () => goToScreen(onboarding2));
+    if (nextBtn2) nextBtn2.addEventListener("click", () => goToScreen(onboarding3));
 
-    // Screen 2 -> Screen 3
-    if (nextBtn2) {
-        nextBtn2.addEventListener("click", () => {
-            onboarding2.style.display = "none";
-            onboarding3.style.display = "flex";
-        });
-    }
-
-    // Finish -> Complete Onboarding
     if (finishBtn) {
         finishBtn.addEventListener("click", () => {
-            alert("Onboarding complete! Heading to Home Screen...");
+            alert("Onboarding complete! Loading dashboard...");
         });
     }
-
-    // Skip Buttons
-    skipBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            alert("Skipped to Home Screen!");
-        });
-    });
 });
