@@ -5,6 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const onboarding2 = document.getElementById("onboarding2");
     const onboarding3 = document.getElementById("onboarding3");
     const ageVerificationScreen = document.getElementById("ageVerificationScreen");
+    const outOfRangeScreen = document.getElementById("outOfRangeScreen");
 
     // 2. Get controls
     const startBtn = document.getElementById("startBtn");
@@ -15,6 +16,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const birthYearSelect = document.getElementById("birthYear");
     const confirmAgeBtn = document.getElementById("confirmAgeBtn");
+    const backToAgeBtn = document.getElementById("backToAgeBtn");
+    const continueAnywayBtn = document.getElementById("continueAnywayBtn");
 
     // Helper: Switch active screen
     function goToScreen(targetScreen) {
@@ -22,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (targetScreen) targetScreen.classList.add("active");
     }
 
-    // Populate Birth Years dynamically
+    // Populate Birth Years dynamically (100 years down to current year)
     if (birthYearSelect) {
         const currentYear = new Date().getFullYear();
         for (let year = currentYear; year >= currentYear - 100; year--) {
@@ -33,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Flow listeners
+    // Navigation Flows
     if (startBtn) startBtn.addEventListener("click", () => goToScreen(onboarding1));
     if (nextBtn1) nextBtn1.addEventListener("click", () => goToScreen(onboarding2));
     if (nextBtn2) nextBtn2.addEventListener("click", () => goToScreen(onboarding3));
@@ -49,15 +52,35 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Confirm Age Button Action
+    // AGE CHECK LOGIC
     if (confirmAgeBtn) {
         confirmAgeBtn.addEventListener("click", () => {
-            const selectedYear = birthYearSelect ? birthYearSelect.value : "";
+            const selectedYear = parseInt(birthYearSelect ? birthYearSelect.value : "0", 10);
+            
             if (!selectedYear) {
                 alert("Please select your birth year before continuing.");
                 return;
             }
-            alert(`Age verified for birth year ${selectedYear}! Welcome aboard.`);
+
+            // Core demographic: 2002 to 2009 (Ages 17-24 in 2026)
+            if (selectedYear >= 2002 && selectedYear <= 2009) {
+                alert(`Welcome! Birth year ${selectedYear} is in our core demographic. Setup complete!`);
+            } else {
+                // Out of target range (e.g. 1999) -> Show notice screen
+                goToScreen(outOfRangeScreen);
+            }
+        });
+    }
+
+    // Back button on Out of Range screen
+    if (backToAgeBtn) {
+        backToAgeBtn.addEventListener("click", () => goToScreen(ageVerificationScreen));
+    }
+
+    // Continue Anyway button on Out of Range screen
+    if (continueAnywayBtn) {
+        continueAnywayBtn.addEventListener("click", () => {
+            alert("Proceeding to main dashboard with general settings...");
         });
     }
 });
