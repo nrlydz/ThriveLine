@@ -264,7 +264,7 @@ h1 {
 }
 
 /* =========================================================
-   Main App Screens Layout
+   Main App Screens Layout (Fixed Display Bug)
 ========================================================= */
 #homeScreen,
 #activityScreen,
@@ -279,10 +279,8 @@ h1 {
     left: 0;
     bottom: 65px;
     width: 100%;
-    /* Fix: stack header and content from top to bottom */
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 #homeScreen::-webkit-scrollbar,
@@ -297,8 +295,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    /* Allow content to fill remaining height properly */
-    flex: 1;
+    justify-content: flex-start;
 }
 
 .app-header {
