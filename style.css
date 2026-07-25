@@ -218,7 +218,7 @@ h1 {
 }
 
 /* =========================
-   Age Verification Form
+   Form Controls & Out of Range Styling
 ========================= */
 .form-group {
     margin-top: 24px;
@@ -258,6 +258,12 @@ h1 {
 .custom-select:focus {
     border-color: #246BFD;
     background-color: #ffffff;
+}
+
+.notice-subtext {
+    margin-top: 12px;
+    font-size: 13px !important;
+    color: #6B7A90;
 }
 
 /* Animations */
