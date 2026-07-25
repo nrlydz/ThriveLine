@@ -1,6 +1,6 @@
-/* =========================
-   Global Reset & Outer Layout
-========================= */
+/* =========================================================
+   Global Reset & Frame Layout
+========================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +17,6 @@ body {
     color: #102A43;
 }
 
-/* Mobile App Frame */
 .app-container {
     width: 100vw;
     height: 100vh;
@@ -28,7 +27,6 @@ body {
     overflow: hidden;
 }
 
-/* Desktop Rounded Frame View */
 @media (min-width: 640px) {
     .app-container {
         border-radius: 40px;
@@ -37,7 +35,6 @@ body {
     }
 }
 
-/* Visibility Control */
 .screen {
     display: none !important;
     width: 100%;
@@ -53,9 +50,9 @@ body {
     display: flex !important;
 }
 
-/* =========================
+/* =========================================================
    Splash Screen
-========================= */
+========================================================= */
 .splash-content {
     display: flex;
     flex-direction: column;
@@ -92,9 +89,9 @@ h1 {
     max-width: 260px;
 }
 
-/* =========================
-   Buttons & Header Links
-========================= */
+/* =========================================================
+   Buttons & Links
+========================================================= */
 .primary-btn {
     width: 100%;
     border: none;
@@ -116,6 +113,7 @@ h1 {
 .onboarding-header {
     display: flex;
     justify-content: flex-end;
+    min-height: 24px;
 }
 
 .skip-link {
@@ -127,9 +125,9 @@ h1 {
     cursor: pointer;
 }
 
-/* =========================
+/* =========================================================
    Graphics & Badges
-========================= */
+========================================================= */
 .illustration-wrapper {
     position: relative;
     width: 160px;
@@ -217,9 +215,9 @@ h1 {
     background: #246BFD;
 }
 
-/* =========================
-   Form Controls & Out of Range Styling
-========================= */
+/* =========================================================
+   Forms & Out-of-Range Styling
+========================================================= */
 .form-group {
     margin-top: 24px;
     width: 100%;
@@ -228,11 +226,10 @@ h1 {
 
 .form-group label {
     display: block;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     color: #6B7A90;
     margin-bottom: 8px;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
@@ -264,6 +261,572 @@ h1 {
     margin-top: 12px;
     font-size: 13px !important;
     color: #6B7A90;
+}
+
+/* =========================================================
+   Main App Screens Layout
+========================================================= */
+#homeScreen,
+#activityScreen,
+#networkScreen,
+#profileScreen {
+    padding: 0;
+    text-align: left;
+    background-color: #F7FAFC;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 65px;
+    width: 100%;
+}
+
+#homeScreen::-webkit-scrollbar,
+#activityScreen::-webkit-scrollbar,
+#networkScreen::-webkit-scrollbar,
+#profileScreen::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    padding: 16px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 10px;
+}
+
+.app-header.title-only {
+    padding-top: 24px;
+}
+
+.app-header h1 {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.app-header .subtitle {
+    font-size: 13px;
+    color: #6B7A90;
+    margin-top: 4px;
+}
+
+.icon-btn {
+    background: #ffffff;
+    border: 1px solid #E2E8F0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.icon-btn.add-btn {
+    background: #246BFD;
+    color: #ffffff;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Home Components */
+.greeting-sub {
+    font-size: 13px;
+    color: #6B7A90;
+    font-weight: 600;
+}
+
+.user-name {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.protection-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #EAFBF1;
+    color: #10B981;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.score-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(16, 42, 67, 0.05);
+}
+
+.gauge-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#59E65A 0% 80%, #20D9E8 80% 96%, #E2E8F0 96% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-circle {
+    width: 124px;
+    height: 124px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-number {
+    font-size: 38px;
+    font-weight: 800;
+    color: #102A43;
+    line-height: 1;
+}
+
+.score-number small {
+    font-size: 20px;
+}
+
+.score-label {
+    font-size: 11px;
+    color: #6B7A90;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.status-text {
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.threats-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(16, 42, 67, 0.04);
+}
+
+.threats-info h3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.trend-indicator {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 4px;
+    display: block;
+}
+
+.text-green { color: #10B981; }
+
+.quick-actions h3,
+.recent-activity h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.action-btn {
+    background: #ffffff;
+    border: 1px solid #F0F4F8;
+    border-radius: 16px;
+    padding: 14px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.action-icon { font-size: 20px; }
+
+.action-btn span:last-child {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6B7A90;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-all {
+    font-size: 12px;
+    font-weight: 700;
+    color: #246BFD;
+    text-decoration: none;
+}
+
+.activity-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.activity-details h4 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.activity-details p {
+    font-size: 12px;
+    color: #6B7A90;
+}
+
+.arrow-right {
+    margin-left: auto;
+    color: #94A3B8;
+    font-size: 18px;
+}
+
+/* Activity Tab */
+.filter-bar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.chip {
+    background: #EDF2F7;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B7A90;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.chip.active {
+    background: #246BFD;
+    color: #ffffff;
+}
+
+.date-group-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #6B7A90;
+    margin: 16px 0 10px;
+}
+
+.timeline-item {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.item-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.icon-green { background: #EAFBF1; }
+.icon-orange { background: #FFF4E5; }
+.icon-blue { background: #EBF8FF; }
+.icon-light-green { background: #F0FDF4; }
+
+.item-content h4 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.item-content p {
+    font-size: 12px;
+    color: #6B7A90;
+}
+
+.item-time {
+    margin-left: auto;
+    font-size: 11px;
+    color: #94A3B8;
+    font-weight: 600;
+}
+
+/* Care Network Tab */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.contact-info h4 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.contact-info p {
+    font-size: 12px;
+    color: #6B7A90;
+}
+
+.add-contact-banner {
+    background: #ffffff;
+    border: 1.5px dashed #CBD5E1;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.banner-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #EAFBF1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-text h4 {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.banner-text p {
+    font-size: 11px;
+    color: #6B7A90;
+}
+
+.text-link-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #246BFD;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Profile Tab */
+.profile-content {
+    padding-top: 24px;
+}
+
+.profile-header-card {
+    background: linear-gradient(135deg, #246BFD, #1FCDE8, #59E65A);
+    border-radius: 24px;
+    padding: 24px 20px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.settings-gear {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.avatar-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    overflow: hidden;
+    margin: 0 auto 10px;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-header-card h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.verified-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 6px 0;
+}
+
+.email-text {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.menu-list {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.menu-item:last-of-type {
+    border-bottom: none;
+}
+
+.menu-icon { font-size: 18px; }
+
+.menu-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-label span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #102A43;
+}
+
+.menu-label small {
+    font-size: 11px;
+    color: #6B7A90;
+}
+
+.menu-value {
+    margin-left: auto;
+    font-size: 12px;
+    color: #6B7A90;
+}
+
+.logout-btn {
+    margin-top: 16px;
+    width: 100%;
+    background: #FFF5F5;
+    color: #E53E3E;
+    border: none;
+    padding: 14px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background: #ffffff;
+    border-top: 1px solid #E2E8F0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+.bottom-nav.hidden {
+    display: none !important;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    color: #94A3B8;
+    transition: color 0.2s ease;
+}
+
+.nav-icon { font-size: 20px; }
+
+.nav-label {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.nav-item.active {
+    color: #246BFD;
 }
 
 /* Animations */
