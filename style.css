@@ -35,6 +35,7 @@ body {
     }
 }
 
+/* Base Screen Rule: Hide everything by default */
 .screen {
     display: none !important;
     width: 100%;
@@ -46,8 +47,44 @@ body {
     background: #ffffff;
 }
 
+/* Show only the screen with the .active class */
 .screen.active {
     display: flex !important;
+}
+
+/* =========================================================
+   Main App Screens Overrides (Only applies when ACTIVE)
+========================================================= */
+#homeScreen.active,
+#activityScreen.active,
+#networkScreen.active,
+#profileScreen.active {
+    padding: 0;
+    text-align: left;
+    background-color: #F7FAFC;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 65px;
+    width: 100%;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
+#homeScreen::-webkit-scrollbar,
+#activityScreen::-webkit-scrollbar,
+#networkScreen::-webkit-scrollbar,
+#profileScreen::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    padding: 16px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: flex-start;
 }
 
 /* =========================================================
@@ -264,47 +301,8 @@ h1 {
 }
 
 /* =========================================================
-   Main App Screens Layout (Fixed Stacking & Layout)
+   Header & Action Components
 ========================================================= */
-#homeScreen,
-#activityScreen,
-#networkScreen,
-#profileScreen {
-    padding: 0;
-    text-align: left;
-    background-color: #F7FAFC;
-    overflow-y: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 65px;
-    width: 100%;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-#homeScreen:not(.active),
-#activityScreen:not(.active),
-#networkScreen:not(.active),
-#profileScreen:not(.active) {
-    display: none !important;
-}
-
-#homeScreen::-webkit-scrollbar,
-#activityScreen::-webkit-scrollbar,
-#networkScreen::-webkit-scrollbar,
-#profileScreen::-webkit-scrollbar {
-    display: none;
-}
-
-.content {
-    padding: 16px 20px 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    justify-content: flex-start;
-}
-
 .app-header {
     display: flex;
     justify-content: space-between;
