@@ -1,15 +1,24 @@
-window.addEventListener("DOMContentLoaded", () => {
-    // 1. Get screens
+document.addEventListener("DOMContentLoaded", () => {
+    // -------------------------------------------------------------
+    // 1. DOM ELEMENTS
+    // -------------------------------------------------------------
     const screens = document.querySelectorAll(".screen");
     const onboarding1 = document.getElementById("onboarding1");
     const onboarding2 = document.getElementById("onboarding2");
     const onboarding3 = document.getElementById("onboarding3");
     const ageVerificationScreen = document.getElementById("ageVerificationScreen");
     const outOfRangeScreen = document.getElementById("outOfRangeScreen");
+    const splashScreen = document.getElementById("splashScreen");
     
-    // Main App & Bottom Nav Controls
+    // Main App & Navigation Controls
     const bottomNav = document.getElementById("bottomNav");
     const navItems = document.querySelectorAll(".nav-item");
+
+    // Side Drawer Controls
+    const menuBtn = document.getElementById("menuBtn");
+    const closeDrawerBtn = document.getElementById("closeDrawerBtn");
+    const sideDrawer = document.getElementById("sideDrawer");
+    const drawerOverlay = document.getElementById("drawerOverlay");
 
     // Buttons
     const startBtn = document.getElementById("startBtn");
@@ -21,7 +30,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const birthYearSelect = document.getElementById("birthYear");
     const confirmAgeBtn = document.getElementById("confirmAgeBtn");
     const backToAgeBtn = document.getElementById("backToAgeBtn");
+    const logoutBtn = document.querySelector(".logout-btn");
 
+    // -------------------------------------------------------------
+    // 2. HELPER FUNCTIONS
+    // -------------------------------------------------------------
+    
     // Helper: Switch Screen and Control Bottom Nav
     function goToScreen(targetScreen, showNav = false) {
         screens.forEach(s => s.classList.remove("active"));
@@ -52,6 +66,21 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Side Drawer Helpers
+    function openDrawer() {
+        if (sideDrawer) sideDrawer.classList.add("open");
+        if (drawerOverlay) drawerOverlay.classList.add("active");
+    }
+
+    function closeDrawer() {
+        if (sideDrawer) sideDrawer.classList.remove("open");
+        if (drawerOverlay) drawerOverlay.classList.remove("active");
+    }
+
+    // -------------------------------------------------------------
+    // 3. EVENT LISTENERS & SETUP
+    // -------------------------------------------------------------
+
     // Dynamic Birth Years Dropdown (2026 down to 1980)
     if (birthYearSelect) {
         const currentYear = new Date().getFullYear();
@@ -77,7 +106,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // STRICT AGE CHECK LOGIC
+    // Age Check Logic (2002 to 2009 for Ages 17-24)
     if (confirmAgeBtn) {
         confirmAgeBtn.addEventListener("click", () => {
             const selectedYear = parseInt(birthYearSelect ? birthYearSelect.value : "0", 10);
@@ -87,84 +116,42 @@ window.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Strictly allowed: Born 2002 to 2009 (Ages 17-24 in 2026)
             if (selectedYear >= 2002 && selectedYear <= 2009) {
                 enterApp("homeScreen");
             } else {
-                // Out of range -> Restricted Access
                 goToScreen(outOfRangeScreen);
             }
         });
     }
 
-    // Back button on Restricted Screen -> Returns to Age Verification
+    // Back button on Restricted Screen
     if (backToAgeBtn) {
         backToAgeBtn.addEventListener("click", () => goToScreen(ageVerificationScreen));
     }
 
-    // Bottom Navigation Bar Switching
+    // Bottom Navigation Switching
     navItems.forEach(item => {
         item.addEventListener("click", () => {
             const targetId = item.dataset.target;
             enterApp(targetId);
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById("menuBtn");
-    const closeDrawerBtn = document.getElementById("closeDrawerBtn");
-    const sideDrawer = document.getElementById("sideDrawer");
-    const drawerOverlay = document.getElementById("drawerOverlay");
-
-    function openDrawer() {
-        sideDrawer.classList.add("open");
-        drawerOverlay.classList.add("active");
-    }
-
-    function closeDrawer() {
-        sideDrawer.classList.remove("open");
-        drawerOverlay.classList.remove("active");
-    }
-
+    // Side Drawer Listeners
     if (menuBtn) menuBtn.addEventListener("click", openDrawer);
     if (closeDrawerBtn) closeDrawerBtn.addEventListener("click", closeDrawer);
     if (drawerOverlay) drawerOverlay.addEventListener("click", closeDrawer);
-});
 
-// Log Out Functionality
-document.addEventListener("DOMContentLoaded", () => {
-    const logoutBtn = document.querySelector('.logout-btn');
-    const bottomNav = document.getElementById('bottomNav');
-    const allScreens = document.querySelectorAll('.screen');
-    const splashScreen = document.getElementById('splashScreen');
-    const sideDrawer = document.getElementById('sideDrawer');
-    const drawerOverlay = document.getElementById('drawerOverlay');
-
+    // Log Out Listener
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-            // 1. Close side drawer if open
-            if (sideDrawer) sideDrawer.classList.remove('open');
-            if (drawerOverlay) drawerOverlay.classList.remove('active');
+        logoutBtn.addEventListener("click", () => {
+            closeDrawer();
+            goToScreen(splashScreen, false);
 
-            // 2. Hide all screens
-            allScreens.forEach(screen => screen.classList.remove('active'));
-
-            // 3. Show Splash Screen
-            if (splashScreen) {
-                splashScreen.classList.add('active');
-            }
-
-            // 4. Hide Bottom Nav
-            if (bottomNav) {
-                bottomNav.classList.add('hidden');
-            }
-
-            // 5. Reset bottom nav tab highlighting back to 'Safety' (Home)
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => item.classList.remove('active'));
+            // Reset bottom nav tab highlighting back to 'Safety' (Home)
+            navItems.forEach(item => item.classList.remove("active"));
             const homeNavItem = document.querySelector('.nav-item[data-target="homeScreen"]');
-            if (homeNavItem) homeNavItem.classList.add('active');
+            if (homeNavItem) homeNavItem.classList.add("active");
         });
     }
 });
